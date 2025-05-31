@@ -20,3 +20,11 @@ func CopyFile(dstName, srcName string) (int64, error) {
 
 	return io.Copy(dst, src)
 }
+
+// FileExist 判断文件存在
+func FileExist(file string) bool {
+	if _, err := os.Stat(file); err == nil {
+		return true
+	}
+	return false
+}
