@@ -28,3 +28,21 @@ func FileExist(file string) bool {
 	}
 	return false
 }
+
+func IsDir(dir string) bool {
+	info, err := os.Stat(dir)
+	if err != nil {
+		return false
+	}
+
+	return info.IsDir()
+}
+
+func IsFile(file string) bool {
+	info, err := os.Stat(file)
+	if err != nil {
+		return false
+	}
+
+	return !info.IsDir()
+}
